@@ -8,7 +8,12 @@ Calcular el perfil de riesgo de una persona.
 | Medio           | Entre 1201 a 1400 |
 | Alto            | Mayor a 1401 |
 
-
+## Instalación
+```
+py -m pip install Django
+o
+python -m pip install Django
+```
 ## Caracteristicas 
 
 * Formulario de campo que contiene
