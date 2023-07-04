@@ -17,7 +17,7 @@ determinar el país correspondiente de cada dirección IP.
 Para utilizar el programa necesitas tener <b> python 3.8+ </b> e instalar las siguientes librerias con la linea de codigo:
 
 ```
-pip install -r requeriments
+pip install -r requirements.txt
 ```
 contenido:
 ```bash
