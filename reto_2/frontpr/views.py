@@ -47,6 +47,46 @@ def calcular_puntaje_riesgo(datos):
         puntaje += 100
     else:
         puntaje += 200
+    
+    # Calcular puntaje en base al país de residencia
+    if datos['pais_residencia'] == 'Panamá':
+        puntaje += 100
+    else:
+        puntaje += 200
+
+    # Calcular puntaje en base a la profesión
+    if datos['profesion'] == 'Abogado':
+        puntaje += 100
+    elif datos['profesion'] == 'Ingeniería':
+        puntaje += 200
+    elif datos['profesion'] == 'Médico':
+        puntaje += 300
+    elif datos['profesion'] == 'Contador':
+        puntaje += 400
+    else:
+        puntaje += 500
+
+    # Calcular puntaje en base a la edad
+    if datos['edad'] == 'Menos 25':
+        puntaje += 100
+    elif datos['edad'] == 'Entre 25 y 55':
+        puntaje += 200
+    else:
+        puntaje += 300
+    
+    # Calcular puntaje en base al nivel de ingresos
+    if datos['Nivel_de_ingresos'] == 'Menos de 20K anual':
+        puntaje += 100
+    elif datos['Nivel_de_ingresos'] == 'Entre 20k y 75k':
+        puntaje += 200
+    else:
+        puntaje += 300
+
+    # Calcular puntaje en base a si es PEP
+    if datos['PEP'] == 'Sí':
+        puntaje += 100
+    else:
+        puntaje += 200
 
     # Agregar aquí la lógica para calcular el puntaje en base a los valores y pesos ingresados
 
