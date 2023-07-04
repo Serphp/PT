@@ -26,71 +26,17 @@
                     <form method="post">
                         {% csrf_token %}
                         
-                        <label for="id_nombre">Nombre:</label>
-                        <input type="text" id="id_nombre" name="nombre" maxlength="50" required>
-                        
-                        <label for="id_segundo_nombre">Segundo Nombre:</label>
-                        <input type="text" id="id_segundo_nombre" name="segundo_nombre" maxlength="50">
-                        
-                        <label for="id_primer_apellido">Primer Apellido:</label>
-                        <input type="text" id="id_primer_apellido" name="primer_apellido" maxlength="50" required>
-                        
-                        <label for="id_segundo_apellido">Segundo Apellido:</label>
-                        <input type="text" id="id_segundo_apellido" name="segundo_apellido" maxlength="50">
-                        
-                        <label for="id_genero">Género:</label>
-                        <select id="id_genero" name="genero" required>
-                          <option value="Hombre">Hombre</option>
-                          <option value="Femenino">Femenino</option>
-                        </select>
-                        
-                        <label for="id_pais_nacimiento">País de Nacimiento:</label>
-                        <select id="id_pais_nacimiento" name="pais_nacimiento" required>
-                          <option value="Panamá">Panamá</option>
-                          <option value="Otros países">Otros países</option>
-                        </select>
-
-
-                        <label for="id_pais_residencia">País de Residencia:</label>
-                        <select id="id_pais_residencia" name="pais_residencia" required>
-                          <option value="Panamá">Panamá</option>
-                          <option value="Otros países">Otros países</option>
-                        </select>
-
-                        <label for="profesion">Profesión:</label>
-                        <select id="id_profesion" class="form-select" name="profesion" required>
-                            <option selected>Elige una opcion</option>
-                            <option value="Abogado">Abogado</option>
-                            <option value="Ingeniería">Ingeniería</option>
-                            <option value="Médico">Médico</option>
-                            <option value="Contador">Contador</option>
-                            <option value="Otras profesiones">Otro</option>
-                        </select>
-
-                        <label for="edad" class="form-label">Edad:</label>
-                        <select id="id_edad" class="form-select" name="edad" required>
-                        <option selectd>Elige una opcion</option>
-                        <option value="Menos 25">Menos 25</option>
-                        <option value="Entre 25 y 55">Entre 25 y 55</option>
-                        <option value="Mayor de 55">Mayor de 55</option>
-                        </select>
-
-
-                        <label for="ingresos" class="form-label">Nivel de Ingresos:</label>
-                        <select id="id_ingresos" class="form-select" name="ingresos" required>
-                        <option selectd>Elige una opcion</option>
-                        <option value="Menos de 20K anual">Menos de 20K anual</option>
-                        <option value="Entre 20k y 75k">Entre 20k y 75k</option>
-                        <option value="Mayor de 75k">Mayor de 75k</option>
-                        </select>
-
-                        <label for="pep" class="form-label">PEP: </label>
-                        <select id="id_pep" class="form-select" name="pep" required>
-                            <option select>Elige una opción</option>
-                            <option value="Si">Si</option>
-                            <option value="No">No</option>
-                        </select>
-             
+                        {{ form.nombre.label }}: {{ form.nombre }}<br>
+                        {{ form.segundo_nombre.label }}: {{ form.segundo_nombre }}<br>
+                        {{ form.primer_apellido.label }}: {{ form.primer_apellido }}<br>
+                        {{ form.segundo_apellido.label }}: {{ form.segundo_apellido }}<br>
+                        {{ form.genero.label }}: {{ form.genero }}<br>
+                        {{ form.pais_nacimiento.label }}: {{ form.pais_nacimiento }}<br>
+                        {{ form.pais_residencia.label }}: {{ form.pais_residencia }}<br>
+                        {{ form.profesion.label }}: {{ form.profesion }}<br>
+                        {{ form.edad.label }}: {{ form.edad }}<br>
+                        {{ form.ingresos.label }}: {{ form.ingresos }}<br>
+                        {{ form.pep.label }}: {{ form.pep }}<br>             
                         
                         <button type="submit">Calcular Puntaje</button>
                       </form>
