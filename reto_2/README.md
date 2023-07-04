@@ -57,4 +57,4 @@ peso = 0.10
 no sabia como exactamente presentar el desarrollo eficiente porque al multiplicar los (200 puntos * 10%) que seria el 0.10 vendría siendo *40* en total.
 Si hacia la misma multiplicación utilizando el *10%* y *20%* la función de puntaje de riesgo para sacar el calculo umbral de riesgo no superarían de *500 puntos*. 
 
-[Calculo de riesgo Archivo](https://github.com/Serphp/PT/blob/master/reto_2/frontpr/views_cr.py)
+[Calculo de riesgo Incluyendo Peso](https://github.com/Serphp/PT/blob/master/reto_2/frontpr/views_cr.py)
