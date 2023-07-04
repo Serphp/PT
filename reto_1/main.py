@@ -10,17 +10,15 @@ def obtener_pais(ip):
     except:
         return 'Desconocido'
 
-#Inicio del programa
 def mostrar_archivos():
     carpeta = 'utils'
-    #Archivo solo leera los archivos con extension .xlsx
-    archivos = [archivo for archivo in os.listdir(carpeta) if archivo.endswith('.xlsx')]
+    archivos = [archivo for archivo in os.listdir(carpeta) if archivo.endswith(('.xlsx', '.csv'))]
 
     if len(archivos) == 0:
-        print("No se encontraron archivos en la carpeta.")
+        print("No se encontraron archivos .xlsx o .csv en la carpeta.")
         return
 
-    print("Archivos encontrados en la carpeta:")
+    print("Archivos .xlsx o .csv encontrados en la carpeta:")
     for i, archivo in enumerate(archivos):
         print(f"{i+1}. {archivo}")
 
@@ -38,10 +36,15 @@ def mostrar_archivos():
     return ruta_archivo
 
 def leer_archivo_ips(ruta_archivo):
-    dataframe = pd.read_excel(ruta_archivo)
+    if ruta_archivo.endswith('.xlsx'):
+        dataframe = pd.read_excel(ruta_archivo)
+    elif ruta_archivo.endswith('.csv'):
+        dataframe = pd.read_csv(ruta_archivo, delimiter=';')
+    else:
+        raise ValueError("Formato de archivo no válido.")
 
-    if 'IP' not in dataframe.columns:
-        dataframe['IP'] = ''  # Agrega una columna 'IP' vacía - 1.1 
+    # if 'IP' not in dataframe.columns:
+    #     dataframe['IP'] = ''  # Agrega una columna 'IP' vacía
 
     return dataframe
 
@@ -66,8 +69,13 @@ while True:
     if ruta_archivo is None:
         break
 
-    dataframe = leer_archivo_ips(ruta_archivo)
-    dataframe['País'] = dataframe['IP'].apply(obtener_pais)
+    try:
+        dataframe = leer_archivo_ips(ruta_archivo)
+    except ValueError as e:
+        print(str(e))
+        continue
+
+    dataframe['País'] = dataframe['GDPR IP'].apply(obtener_pais)
 
     crear_nuevo_archivo(dataframe, contador)
     contador += 1
