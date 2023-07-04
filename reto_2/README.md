@@ -14,6 +14,12 @@ py -m pip install Django
 o
 python -m pip install Django
 ```
+
+## Inicia el servidor 
+```
+python manage.py runserver
+```
+
 ## Caracteristicas 
 
 * Formulario de campo que contiene
@@ -31,14 +37,5 @@ python -m pip install Django
 * Botón de calcular
 * Resultado del perfil de riesgo
 * Botón de regresar
-
-## Logica para calcular el perfil de riesgo
-(País de nacimiento * peso) +  <br>
-(País de residencia * peso) + <br>
-(Profesión * peso) + <br>
-(edad * peso ) + <br>
-(nivel de ingresos) + <br>
-(PEP * peso) <br>
-
-* Condicion si es PEP su nivel de riesgo se vuelve automaticamente Alto.
+* <b> Condicion </b> si PEP es cierto, su nivel de riesgo se vuelve automaticamente Alto.
 
