@@ -35,4 +35,6 @@ contenido:
 
 > 1.2 : Se añade la opción 0 para salir del programa
         Se añade una condición si desea continuar o no después de terminar de convertir un archivo.
+> 1.3 : Se añadio doble formato de lectura excel & csv 
+        Se verifica el codigo y se acomodan por colunmas y filas.
 ```
