@@ -45,21 +45,32 @@ def leer_archivo_ips(ruta_archivo):
 
     return dataframe
 
-def crear_nuevo_archivo(dataframe):
+def crear_nuevo_archivo(dataframe, contador):
     carpeta_resultados = 'utils/resultados'
     if not os.path.exists(carpeta_resultados):
         os.makedirs(carpeta_resultados)
 
-    archivo_salida = os.path.join(carpeta_resultados, 'resultados.xlsx')
+    archivo_salida = os.path.join(carpeta_resultados, f'resultados{contador}.xlsx')
     dataframe.to_excel(archivo_salida, index=False)
     print(f"El nuevo archivo '{archivo_salida}' ha sido creado exitosamente.")
 
-# Solucion
-ruta_archivo = mostrar_archivos()
-if ruta_archivo is None:
-    exit()
+def mostrar_opcion_continuar():
+    opcion = input("¿Desea continuar? (S/N): ")
+    return opcion.upper() == "S"
 
-dataframe = leer_archivo_ips(ruta_archivo)
-dataframe['País'] = dataframe['IP'].apply(obtener_pais)
+# Programa principal
+contador = 1
 
-crear_nuevo_archivo(dataframe)
+while True:
+    ruta_archivo = mostrar_archivos()
+    if ruta_archivo is None:
+        break
+
+    dataframe = leer_archivo_ips(ruta_archivo)
+    dataframe['País'] = dataframe['IP'].apply(obtener_pais)
+
+    crear_nuevo_archivo(dataframe, contador)
+    contador += 1
+
+    if not mostrar_opcion_continuar():
+        break
