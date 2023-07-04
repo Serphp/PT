@@ -1,11 +1,11 @@
 # Analista Programador
 
-| Reto  | Descripcion | Link |
+| Reto  | Descripcion | Repositorio |
 |-------|-------------|------|
 | Python | Determinar la IP de cada dirección IP.| [Ver](https://github.com/Serphp/PT/tree/master/reto_1) |
 | Django Web | Cacular perfil riesgo de una persona.| [Ver](https://github.com/Serphp/PT/tree/master/reto_2) |
 
-[Documento del Reto 1](https://serphp.github.io/PT/reto_1/)
+[Documento del Reto 1](https://serphp.github.io/PT/reto_1/) <br>
 [Documento del Reto 2](https://serphp.github.io/PT/reto_2/)
 
 ## Necesitas 
