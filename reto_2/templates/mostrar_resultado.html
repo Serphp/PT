@@ -1,31 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Mostrar Resultado</title>
+    <title>Resultado del cálculo de puntaje de riesgo</title>
 </head>
 <body>
-    <h1>Resultados:</h1>
-    {% if direcciones %}
-        <table>
-            <thead>
-                <tr>
-                    <th>Dirección IP</th>
-                    <th>País</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for direccion, pais in direcciones %}
-                    <tr>
-                        <td>{{ direccion }}</td>
-                        <td>{{ pais }}</td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    {% else %}
-        <p>No se encontraron resultados.</p>
-    {% endif %}
-    
-    <a href="{% url 'descargar_resultado' %}" class="btn btn-primary">Descargar Resultado</a>
+    <h1>Resultado del cálculo de puntaje de riesgo</h1>
+    <p>El puntaje de riesgo calculado es: {{ puntaje_riesgo }}</p>
 </body>
 </html>

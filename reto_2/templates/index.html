@@ -16,28 +16,46 @@
   </head>
 <body>
     <section>
-        {% block content %}
+
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <h1> Calcular el perfil de riesgo de una persona </h1>
-                    <p>Esta es una página de ejemplo para tu aplicación.</p>
+                    
+                    <form method="post">
+                        {% csrf_token %}
+                        
+                        <label for="id_nombre">Nombre:</label>
+                        <input type="text" id="id_nombre" name="nombre" maxlength="50" required>
+                        
+                        <label for="id_segundo_nombre">Segundo Nombre:</label>
+                        <input type="text" id="id_segundo_nombre" name="segundo_nombre" maxlength="50">
+                        
+                        <label for="id_primer_apellido">Primer Apellido:</label>
+                        <input type="text" id="id_primer_apellido" name="primer_apellido" maxlength="50" required>
+                        
+                        <label for="id_segundo_apellido">Segundo Apellido:</label>
+                        <input type="text" id="id_segundo_apellido" name="segundo_apellido" maxlength="50">
+                        
+                        <label for="id_genero">Género:</label>
+                        <select id="id_genero" name="genero" required>
+                          <option value="Hombre">Hombre</option>
+                          <option value="Femenino">Femenino</option>
+                        </select>
+                        
+                        <label for="id_pais_nacimiento">País de Nacimiento:</label>
+                        <select id="id_pais_nacimiento" name="pais_nacimiento" required>
+                          <option value="Panamá">Panamá</option>
+                          <option value="Otros países">Otros países</option>
+                        </select>
+                        
+                        <button type="submit">Calcular Puntaje</button>
+                      </form>
+
                 </div>
             </div>
         </div>
 
-        <div class="container">
-            <div class="row">
-                {% for message in messages %}
-                <div class="col-12">
-                    <div class="alert alert-{{ message.tags }}">
-                        {{ message }}
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
-            
-        {% endblock %}
     </section>
 
 </body>
