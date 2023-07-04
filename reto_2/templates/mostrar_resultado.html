@@ -1,10 +1,67 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Resultado del cálculo de puntaje de riesgo</title>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'global.css' %}">
+    
+    
+        <title>{% block title %} Calcular el perfil de riesgo{% endblock %}</title>
+      </head>
 </head>
 <body>
-    <h1>Resultado del cálculo de puntaje de riesgo</h1>
-    <p>El puntaje de riesgo calculado es: {{ puntaje_riesgo }}</p>
+    
+
+    {% block content %}
+    <section class="container">
+    <div class="card">
+
+        <hgroup>
+            <h2>Resultados</h2>
+            <h3>Subtitle for heading 2</h3>
+          </hgroup>
+
+        <article class="total">
+            <h1 class="{% if puntaje_riesgo < 1200 %}bajo{% elif puntaje_riesgo < 1400 %}medio{% else %}alto{% endif %}">
+                Puntaje de riesgo: {{ puntaje_riesgo }}
+            </h1>
+            <p>
+                Umbral de riesgo: {{ umbral_riesgo }}
+            </p>
+            <footer class="datos">
+            Datos ingresados: <br>
+            <ul>
+                <li>Nombre: {{ datos.nombre }}</li>
+                <li>Segundo nombre: {{ datos.segundo_nombre}}</li>
+                <li>Apellido: {{ datos.apellido }}</li>
+                <li>Segundo apellido: {{ datos.segundo_apellido }}</li>
+                <li>Genero: {{ datos.genero }}</li>
+                <li>Fecha de nacimiento: {{ datos.fecha_nacimiento }}</li>
+                <li>Pais de nacimiento: {{ datos.pais_nacimiento }}</li>
+                <li>Pais de residencia: {{ datos.pais_residencia }}</li>
+                <li>Profesion: {{ datos.profesion }}</li>
+                <li>Edad: {{ datos.edad }}</li>
+                <li>Ingresos: {{ datos.ingresos }}</li>
+                <li>PEP: {{ datos.pep }}</li>
+            </ul>
+
+            </footer>
+          </article> 
+            <button class="warning" onclick="history.go(-1)">
+                Volver
+            </button>
+        <h1></h1>
+    </div>
+    </section>
+
+{% endblock %}
 </body>
 </html>

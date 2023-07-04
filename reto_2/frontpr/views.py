@@ -18,11 +18,12 @@ class DatosPersonaForm(forms.Form):
 
 
 def index(request):
-    # Si el formulario se envió, procesa los datos
+    # Si el formulario se envió, procesar los datos
     if request.method == 'POST':
         form = DatosPersonaForm(request.POST)
         if form.is_valid():
             datos = form.cleaned_data
+            request.session['datos_formulario'] = datos
             puntaje_riesgo, umbral_riesgo = calcular_puntaje_riesgo(datos)
             return redirect('mostrar_resultado', puntaje_riesgo=puntaje_riesgo, umbral_riesgo=umbral_riesgo)
     else:
@@ -89,6 +90,7 @@ def calcular_puntaje_riesgo(datos):
     # retorna el puntaje total y umbral_riesgo
 
 def mostrar_resultado(request, puntaje_riesgo, umbral_riesgo):
+    datos = request.session.get('datos_formulario')
     porcentaje = puntaje_riesgo / 500 * 100
 
     # Calcular umbral de riesgo
@@ -99,4 +101,4 @@ def mostrar_resultado(request, puntaje_riesgo, umbral_riesgo):
     else:
         umbral_riesgo = 'Bajo'
     #Renderiza los resultados en la plantilla mostrar_resultado.html
-    return render(request, 'mostrar_resultado.html', {'puntaje_riesgo': puntaje_riesgo, 'porcentaje': porcentaje, 'umbral_riesgo': umbral_riesgo})
+    return render(request, 'mostrar_resultado.html', {'puntaje_riesgo': puntaje_riesgo, 'porcentaje': porcentaje, 'umbral_riesgo': umbral_riesgo, 'datos': datos})
