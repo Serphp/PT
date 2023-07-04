@@ -39,36 +39,35 @@ def calcular_puntaje_riesgo(datos):
 
     # Calcular puntaje en base al país de nacimiento
     if datos['pais_nacimiento'] == 'Panamá':
-        puntaje += 100
+        puntaje += int(100 * peso)
     else:
-        puntaje += 200
-    
+        puntaje += int(200 * peso)
     
     # Calcular puntaje en base al país de residencia
     if datos['pais_residencia'] == 'Panamá':
-        puntaje += 100
+        puntaje += int(100 * peso)
     else:
-        puntaje += 200
+        puntaje += int(200 * peso)
 
     # Calcular puntaje en base a la profesión
     if datos['profesion'] == 'Abogado':
-        puntaje += 100
+        puntaje += int(100 * peso2)
     elif datos['profesion'] == 'Ingeniería':
-        puntaje += 200
+        puntaje += int(200 * peso2)
     elif datos['profesion'] == 'Médico':
-        puntaje += 300
+        puntaje += int(300 * peso2)
     elif datos['profesion'] == 'Contador':
-        puntaje += 400
+        puntaje += int(400 * peso2)
     else:
-        puntaje += 500
+        puntaje += int(500 * peso2)
 
     # Calcular puntaje en base a la edad
     if datos['edad'] == 'Menos 25':
-        puntaje += 100
+        puntaje += int(100 * peso)
     elif datos['edad'] == 'Entre 25 y 55':
-        puntaje += 200
+        puntaje += int(200 * peso)
     elif datos['edad'] == 'Mayor de 55':
-        puntaje += 300
+        puntaje += 300 * peso
 
     # Calcular puntaje en base al nivel de ingresos
     if datos['ingresos'] == 'Menos de 20K anual':
@@ -80,23 +79,24 @@ def calcular_puntaje_riesgo(datos):
 
     # Calcular puntaje en base a si es PEP
     if datos['pep'] == 'Si':
-        puntaje += 100
+        puntaje += int(100 * peso2)
         umbral_riesgo = 'Alto'  # Si es PEP, el nivel de riesgo es siempre alto
     else:
         umbral_riesgo = 'Bajo'  # Inicialmente, asumimos nivel de riesgo bajo
-        puntaje += 200
+        puntaje += int(200 * peso2)
     
-    return puntaje, umbral_riesgo
     # retorna el puntaje total y umbral_riesgo
+    return puntaje, umbral_riesgo
+
 
 def mostrar_resultado(request, puntaje_riesgo, umbral_riesgo):
     datos = request.session.get('datos_formulario')
     porcentaje = puntaje_riesgo / 500 * 100
 
     # Calcular umbral de riesgo
-    if puntaje_riesgo >= 1400:
+    if puntaje_riesgo >= 1401:
         umbral_riesgo = 'Alto'
-    elif puntaje_riesgo >= 1200:
+    elif puntaje_riesgo >= 1201:
         umbral_riesgo = 'Medio'
     else:
         umbral_riesgo = 'Bajo'
