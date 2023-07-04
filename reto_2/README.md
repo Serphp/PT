@@ -20,7 +20,7 @@ python -m pip install Django
 python manage.py runserver
 ```
 
-## Caracteristicas 
+## Características 
 
 * Formulario de campo que contiene
     * Nombre
@@ -37,5 +37,24 @@ python manage.py runserver
 * Botón de calcular
 * Resultado del perfil de riesgo
 * Botón de regresar
-* <b> Condicion </b> si PEP es cierto, su nivel de riesgo se vuelve automaticamente Alto.
+* <b> Condicion </b> si PEP es cierto, su nivel de riesgo se vuelve automáticamente Alto.
 
+## Problemas
+Para extraer el calculo de riesgo utilizando la formula: <br>
+```
+Cálculo de riesgo: (País de nacimiento x peso) + (País de residencia * peso) + (Profesión * peso) + edad * peso, + nivel de ingresos + (PEP * peso) 
+```
+Presente un problema en el que no sabia exactamente como presentar el calculo de forma precisa.
+Ejemplo utilizando la "pais_residencia" en python 
+
+```python
+peso = 0.10
+    if datos['pais_residencia'] == 'Panamá':
+        puntaje += int(100 * peso)
+    else:
+        puntaje += int(200 * peso)
+```
+no sabia como exactamente presentar el desarrollo eficiente porque al multiplicar los (200 puntos * 10%) que seria el 0.10 vendría siendo *40* en total.
+Si hacia la misma multiplicación utilizando el *10%* y *20%* la función de puntaje de riesgo para sacar el calculo umbral de riesgo no superarían de *500 puntos*. 
+
+[Calculo de riesgo Archivo](https://github.com/Serphp/PT/blob/master/reto_2/frontpr/views_cr.py)
