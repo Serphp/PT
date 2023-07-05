@@ -2,9 +2,14 @@
 ## Objetivo
 determinar el país correspondiente de cada dirección IP.
 
-## Funcionamiento 
+## Funcionamiento e Instalación
+Para iniciar el script de <b>python</b> debes contar con una versión instalada de [python](https://www.python.org/downloads/) en tu sistema operativo.
+```bash
+1) pip install -r requirements.txt "(Instalación de librerias por si no las tienes instaladas)"
+2) python main.py "(iniciar el script)"
+```
 
-* En la carpeta <b>utils</b> agregaras los archivos excel para el funcionamiento correcto
+* En la carpeta <b>utils</b> se colocan los archivos excel o csv para su analisís.
 
 * Los resultados se guardaran en <b>/utils/resultados</b>
 
@@ -12,14 +17,7 @@ determinar el país correspondiente de cada dirección IP.
 
 * <b>GeoLite2-Country.mmd</b> es el archivo que contiene los datos para saber cual IP pertenece a tal pais.
 
-## Dependencias
-
-Para utilizar el programa necesitas tener <b> python 3.8+ </b> e instalar las siguientes librerias con la linea de codigo:
-
-```
-pip install -r requirements.txt
-```
-contenido:
+## librerias utilizadas:
 ```bash
 > geoip2
 > Pandas
