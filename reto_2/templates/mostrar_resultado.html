@@ -34,8 +34,16 @@
                 Puntaje de riesgo: {{ puntaje_riesgo }}
             </h1>
             <p>
-                Umbral de riesgo: {{ umbral_riesgo }}
+                Umbral de riesgo: 
+                {% if datos.pep == 'Si' %}
+                {% with umbral_riesgo='ALTO' %}
+                {{ umbral_riesgo }}
+                {% endwith %}
+                {% else %}
+                {{ umbral_riesgo }}
+                {% endif %}
             </p>
+            
             <footer class="datos">
             Datos ingresados: <br>
             <ul>
@@ -51,6 +59,10 @@
                 <li>Edad: {{ datos.edad }}</li>
                 <li>Ingresos: {{ datos.ingresos }}</li>
                 <li>PEP: {{ datos.pep }}</li>
+
+
+            
+
             </ul>
 
             </footer>

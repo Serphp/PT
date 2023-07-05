@@ -39,35 +39,35 @@ def calcular_puntaje_riesgo(datos):
 
     # Calcular puntaje en base al país de nacimiento
     if datos['pais_nacimiento'] == 'Panamá':
-        puntaje += int(100 * peso)
+        puntaje += 100
     else:
-        puntaje += int(200 * peso)
+        puntaje += 200
     
     # Calcular puntaje en base al país de residencia
     if datos['pais_residencia'] == 'Panamá':
-        puntaje += int(100 * peso)
+        puntaje += 100
     else:
-        puntaje += int(200 * peso)
+        puntaje += 200
 
     # Calcular puntaje en base a la profesión
     if datos['profesion'] == 'Abogado':
-        puntaje += int(100 * peso2)
+        puntaje += 100
     elif datos['profesion'] == 'Ingeniería':
-        puntaje += int(200 * peso2)
+        puntaje += 200
     elif datos['profesion'] == 'Médico':
-        puntaje += int(300 * peso2)
+        puntaje += 300
     elif datos['profesion'] == 'Contador':
-        puntaje += int(400 * peso2)
+        puntaje += 400
     else:
-        puntaje += int(500 * peso2)
+        puntaje += 500
 
     # Calcular puntaje en base a la edad
     if datos['edad'] == 'Menos 25':
-        puntaje += int(100 * peso)
+        puntaje += 100
     elif datos['edad'] == 'Entre 25 y 55':
-        puntaje += int(200 * peso)
+        puntaje += 200
     elif datos['edad'] == 'Mayor de 55':
-        puntaje += 300 * peso
+        puntaje += 300
 
     # Calcular puntaje en base al nivel de ingresos
     if datos['ingresos'] == 'Menos de 20K anual':
@@ -79,11 +79,11 @@ def calcular_puntaje_riesgo(datos):
 
     # Calcular puntaje en base a si es PEP
     if datos['pep'] == 'Si':
-        puntaje += int(100 * peso2)
+        puntaje += 100
         umbral_riesgo = 'Alto'  # Si es PEP, el nivel de riesgo es siempre alto
     else:
         umbral_riesgo = 'Bajo'  # Inicialmente, asumimos nivel de riesgo bajo
-        puntaje += int(200 * peso2)
+        puntaje += 200
     
     # retorna el puntaje total y umbral_riesgo
     return puntaje, umbral_riesgo
