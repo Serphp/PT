@@ -2,7 +2,7 @@
 
 | Reto  | Descripcion | Repositorio |
 |-------|-------------|------|
-| Python | Determinar la IP de cada dirección IP.| [Ver](https://github.com/Serphp/PT/tree/master/reto_1) |
+| Python | Determinar el país de cada dirección IP.| [Ver](https://github.com/Serphp/PT/tree/master/reto_1) |
 | Django Web | Cacular perfil riesgo de una persona.| [Ver](https://github.com/Serphp/PT/tree/master/reto_2) |
 
 [Documento del Reto 1](https://serphp.github.io/PT/reto_1/) <br>
